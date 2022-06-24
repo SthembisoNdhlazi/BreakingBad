@@ -25,5 +25,12 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setUpContent(character:Character){
+        nameLabel.text = character.name
+        nicknameLabel.text = character.nickname
+        characterImage.downloaded(from: character.img)
+        ageLabel.text = character.birthday
+    }
 
 }
