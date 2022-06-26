@@ -22,6 +22,8 @@ extension UIImageView {
             }
         }.resume()
     }
+    
+    
     func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
@@ -29,22 +31,58 @@ extension UIImageView {
 }
 
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        (character?.occupation.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = character?.occupation[indexPath.row]
+        let cell = UITableViewCell()
+        cell.textLabel?.text = data
+        return cell
+    }
+    
+    @IBOutlet var tableView: UITableView!
+    
     @IBOutlet var characterImage: UIImageView!
     
-   
-    @IBOutlet var textView: UITextView!
+    @IBOutlet var nameLabel: UILabel!
     
+    @IBOutlet var actorLabel: UILabel!
+    
+  
+    
+    @IBOutlet var quoteLabel: UILabel!
+    @IBOutlet var statusLabel: UILabel!
     var character:Character?
+   let dataProvider = DataProvider()
+    var quote:Quotes?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.reloadData()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+       
+        nameLabel.text = "Name: \(character?.name ?? "")"
+        actorLabel.text = "portrayed by: \(character?.portrayed ?? "")"
+       
+        statusLabel.text = "Status:\(character?.status ?? "")"
+        
+        if character?.char_id == quote?.quote_id{
+            quoteLabel.text = quote?.quote
+        } else{
+            quoteLabel.text = "error getting quote"
+        }
 
-        textView.text = "Name: \(character?.name ?? "") \n\nOccupation: \(character?.occupation.description ?? "") \n\nActor: \(character?.portrayed ?? "") \n\nStatus: \(character?.status ?? "")"
         
         characterImage.downloaded(from: character!.img)
     }
 
+   
+    
 }
 
 

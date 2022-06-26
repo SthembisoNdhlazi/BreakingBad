@@ -28,8 +28,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dataProvider.downloadJson {
             self.tableView.reloadData()
         }
-        
-        
+       
+       
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -48,9 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let character = characters[indexPath.row]
             cell.setUpContent(character: character)
         }
-        
-        
-   
+ 
         return cell
     }
     

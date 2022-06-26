@@ -8,6 +8,7 @@
 import Foundation
 
 struct Character:Decodable{
+    let char_id:Int
     let name:String
     let nickname:String
     let status:String
@@ -15,6 +16,13 @@ struct Character:Decodable{
     let img:String
     let occupation : [String]
     let birthday:String
+}
+
+struct Quotes:Decodable{
+    let quote_id:Int
+    let quote:String
+    let author:String
+    
 }
 
 

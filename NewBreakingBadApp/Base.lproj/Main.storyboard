@@ -111,29 +111,65 @@
                                     <constraint firstAttribute="width" constant="200" id="tv5-YH-vgm"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-r3-71y">
-                                <rect key="frame" x="20" y="390" width="374" height="447"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c7D-xf-4pm">
+                                <rect key="frame" x="40" y="390" width="334" height="447"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqa-1i-82P">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGO-N6-caL">
+                                        <rect key="frame" x="0.0" y="74.5" width="334" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odi-rS-315">
+                                        <rect key="frame" x="0.0" y="149" width="334" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edb-Qm-Iie">
+                                        <rect key="frame" x="0.0" y="223.5" width="334" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occupation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhq-sP-OJe">
+                                        <rect key="frame" x="0.0" y="298" width="334" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="caW-Ls-kcY">
+                                        <rect key="frame" x="0.0" y="372.5" width="334" height="74.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9h5-Ov-oHu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9h5-Ov-oHu" firstAttribute="bottom" secondItem="c7D-xf-4pm" secondAttribute="bottom" constant="25" id="HbW-bB-9LK"/>
                             <constraint firstItem="cwq-bg-SeS" firstAttribute="top" secondItem="9h5-Ov-oHu" secondAttribute="top" constant="25" id="Iaj-xW-QJ1"/>
-                            <constraint firstItem="pdf-r3-71y" firstAttribute="top" secondItem="cwq-bg-SeS" secondAttribute="bottom" constant="25" id="Px4-Gu-65X"/>
-                            <constraint firstItem="pdf-r3-71y" firstAttribute="leading" secondItem="9h5-Ov-oHu" secondAttribute="leading" constant="20" id="a7M-HC-pkm"/>
-                            <constraint firstItem="9h5-Ov-oHu" firstAttribute="trailing" secondItem="pdf-r3-71y" secondAttribute="trailing" constant="20" id="kmM-Tr-ZjT"/>
-                            <constraint firstItem="9h5-Ov-oHu" firstAttribute="bottom" secondItem="pdf-r3-71y" secondAttribute="bottom" constant="25" id="uqf-d0-yN0"/>
+                            <constraint firstItem="c7D-xf-4pm" firstAttribute="leading" secondItem="9h5-Ov-oHu" secondAttribute="leading" constant="40" id="SrK-df-FAo"/>
+                            <constraint firstItem="c7D-xf-4pm" firstAttribute="top" secondItem="cwq-bg-SeS" secondAttribute="bottom" constant="25" id="VYu-YQ-FBx"/>
+                            <constraint firstItem="9h5-Ov-oHu" firstAttribute="trailing" secondItem="c7D-xf-4pm" secondAttribute="trailing" constant="40" id="yem-lS-uwq"/>
                             <constraint firstItem="cwq-bg-SeS" firstAttribute="centerX" secondItem="dfX-Z4-njx" secondAttribute="centerX" id="zGT-Qw-Zao"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fHS-Rx-x3g"/>
                     <connections>
+                        <outlet property="actorLabel" destination="TGO-N6-caL" id="kuR-Un-Y80"/>
                         <outlet property="characterImage" destination="cwq-bg-SeS" id="y9m-za-dUl"/>
-                        <outlet property="textView" destination="pdf-r3-71y" id="nBI-cx-E9S"/>
+                        <outlet property="nameLabel" destination="oqa-1i-82P" id="6li-NE-PRo"/>
+                        <outlet property="quoteLabel" destination="edb-Qm-Iie" id="cQb-hb-vd6"/>
+                        <outlet property="statusLabel" destination="odi-rS-315" id="lYW-y5-Aob"/>
+                        <outlet property="tableView" destination="caW-Ls-kcY" id="Pp1-nR-ASO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8h-s3-J44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -160,9 +196,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
