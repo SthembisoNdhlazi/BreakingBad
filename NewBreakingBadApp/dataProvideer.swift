@@ -36,7 +36,7 @@ class DataProvider{
     
     func getQuotes(completed: @escaping ()->()){
         let url = URL(string: "https://breakingbadapi.com/api/quotes")
-        URLSession.shared.dataTask(with: url!){ data, response, error in
+        URLSession.shared.dataTask(with: url!){ [self] data, response, error in
             
             if error == nil{
                 do{
@@ -44,12 +44,13 @@ class DataProvider{
                     DispatchQueue.main.async {
                         completed()
                     }
+                
+                    
                 } catch{
                     print("Error fetching quotes")
                 }
             }
-        }
-        .resume()
+        }.resume()
     }
     
 }

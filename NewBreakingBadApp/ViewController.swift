@@ -61,11 +61,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController{
             destination.character = dataProvider.characters![tableView.indexPathForSelectedRow!.row]
+            
         }
         
     }
     
- 
+   
 
 }
 

@@ -56,11 +56,18 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var quoteLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
     var character:Character?
-   let dataProvider = DataProvider()
-    var quote:Quotes?
+   
+    var quote : Quotes?
+    var dataProvider = DataProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        dataProvider.getQuotes {
+            
+        }
+        
         
         tableView.reloadData()
         self.tableView.dataSource = self
@@ -70,14 +77,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         actorLabel.text = "portrayed by: \(character?.portrayed ?? "")"
        
         statusLabel.text = "Status:\(character?.status ?? "")"
+        quoteLabel.text = "Quote\(quote?.quote ?? "")"
+       
         
-        if character?.char_id == quote?.quote_id{
-            quoteLabel.text = quote?.quote
-        } else{
-            quoteLabel.text = "error getting quote"
-        }
-
-        
+       
         characterImage.downloaded(from: character!.img)
     }
 
