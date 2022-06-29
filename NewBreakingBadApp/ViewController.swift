@@ -46,9 +46,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if let characters = dataProvider.characters{
             let character = characters[indexPath.row]
-            cell.setUpContent(character: character)
+            cell.setUpContent(character: character, isFavourite: dataProvider.isFavourited)
         }
- 
+        cell.favouriteDelegate = self
         return cell
     }
     
@@ -67,8 +67,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
    
-
 }
 
+extension ViewController:Favouritable{
+    func toggleFavourite(for cell: UITableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell){
+        
+        dataProvider.toggleFavourite(for: indexPath.row)
+        }
+    }
+    
+   
+    
+    
+}
 
 

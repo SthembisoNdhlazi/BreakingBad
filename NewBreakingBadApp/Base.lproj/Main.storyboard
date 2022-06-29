@@ -30,31 +30,40 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="178"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="elq-pk-hAf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="178"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="111.5" height="178"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bWR-YZ-gOb">
-                                                            <rect key="frame" x="197" y="0.0" width="177" height="178"/>
+                                                            <rect key="frame" x="131.5" y="0.0" width="111" height="178"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTg-eK-frZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="59.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="111" height="59.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyh-2Q-UPH">
-                                                                    <rect key="frame" x="0.0" y="59.5" width="177" height="59"/>
+                                                                    <rect key="frame" x="0.0" y="59.5" width="111" height="59"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osW-0s-OU7">
-                                                                    <rect key="frame" x="0.0" y="118.5" width="177" height="59.5"/>
+                                                                    <rect key="frame" x="0.0" y="118.5" width="111" height="59.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FZ-PS-F6z">
+                                                            <rect key="frame" x="262.5" y="0.0" width="111.5" height="178"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                            <state key="selected" image="heart.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="favoriteButtonTapped:" destination="orp-CJ-Osa" eventType="touchUpInside" id="3ow-qu-tUO"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -69,6 +78,7 @@
                                             <outlet property="ageLabel" destination="osW-0s-OU7" id="9Pk-kL-fn0"/>
                                             <outlet property="cellView" destination="OAi-pl-792" id="Pad-7X-gsc"/>
                                             <outlet property="characterImage" destination="elq-pk-hAf" id="I8W-BF-FCx"/>
+                                            <outlet property="favButton" destination="1FZ-PS-F6z" id="Zuh-g5-hNg"/>
                                             <outlet property="nameLabel" destination="bTg-eK-frZ" id="oLj-q6-ehi"/>
                                             <outlet property="nicknameLabel" destination="Vyh-2Q-UPH" id="6ZF-dC-JC6"/>
                                         </connections>
@@ -196,6 +206,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

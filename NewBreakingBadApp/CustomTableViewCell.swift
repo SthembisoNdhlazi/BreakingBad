@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol Favouritable{
+    func toggleFavourite(for cell:UITableViewCell)
+    
+}
+
 class CustomTableViewCell: UITableViewCell {
+    
+    var favouriteDelegate:Favouritable?
+    
+    @IBOutlet var favButton: UIButton!
     @IBOutlet var cellView: UIView!
     @IBOutlet var characterImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -26,11 +35,23 @@ class CustomTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpContent(character:Character){
+    func setUpContent(character:Character, isFavourite:Bool){
         nameLabel.text = character.name
         nicknameLabel.text = character.nickname
         characterImage.downloaded(from: character.img)
         ageLabel.text = character.birthday
+        
+        if isFavourite{
+        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        print("tapped event on cell")
+        
+        favouriteDelegate?.toggleFavourite(for: self)
+        
+    }
 }
