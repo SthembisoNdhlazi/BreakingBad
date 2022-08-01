@@ -13,15 +13,17 @@ class DataProvider{
     
     var quotes:[Quotes]? = nil
     
-    var isFavourited:Bool = false
+    var isFavourited = [Bool]()
     
     func downloadJson(completed: @escaping ()->()){
         let url = URL(string: "https://breakingbadapi.com/api/characters")
-        URLSession.shared.dataTask(with: url!){ data, response, error in
+        URLSession.shared.dataTask(with: url!){ [self] data, response, error in
             
             if error == nil{
                 do{
                     self.characters = try JSONDecoder().decode([Character].self, from: data!)
+                    
+                    
                     
                     DispatchQueue.main.async {
                         completed()
@@ -57,6 +59,8 @@ class DataProvider{
     
     func toggleFavourite(for index:Int){
         
-        isFavourited = true
+       print("toggled")
+        
+        isFavourited[index].toggle()
     }
 }

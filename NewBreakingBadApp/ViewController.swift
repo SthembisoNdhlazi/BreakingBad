@@ -25,11 +25,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         title = "Breaking bad"
         
         
-        dataProvider.downloadJson {
+        dataProvider.downloadJson { [self] in
             self.tableView.reloadData()
+            
+            if let charactersArray = dataProvider.characters{
+            for character in charactersArray{
+                    dataProvider.isFavourited.append(false)
+                }
+            }
         }
        
-       
+                
+                
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -46,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if let characters = dataProvider.characters{
             let character = characters[indexPath.row]
-            cell.setUpContent(character: character, isFavourite: dataProvider.isFavourited)
+            cell.setUpContent(character: character, isFavourite: dataProvider.isFavourited[indexPath.row])
         }
         cell.favouriteDelegate = self
         return cell

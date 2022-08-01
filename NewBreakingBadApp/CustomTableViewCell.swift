@@ -46,12 +46,17 @@ class CustomTableViewCell: UITableViewCell {
         }else{
             favButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
     }
 
+    
+    
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         print("tapped event on cell")
         
         favouriteDelegate?.toggleFavourite(for: self)
+        
+        
         
     }
 }
