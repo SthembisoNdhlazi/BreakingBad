@@ -15,6 +15,8 @@ protocol Favouritable{
 class CustomTableViewCell: UITableViewCell {
     
     var favouriteDelegate:Favouritable?
+    var dataProvider = DataProvider()
+    
     
     @IBOutlet var favButton: UIButton!
     @IBOutlet var cellView: UIView!
@@ -57,6 +59,19 @@ class CustomTableViewCell: UITableViewCell {
         favouriteDelegate?.toggleFavourite(for: self)
         
         
+       
+    }
+    func checkFavorite(isFavourite:Bool){
+        
+        if isFavourite{
+        favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else{
+            favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
         
     }
+    
+
 }
+
+

@@ -55,6 +55,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let character = characters[indexPath.row]
             cell.setUpContent(character: character, isFavourite: dataProvider.isFavourited[indexPath.row])
         }
+        
+        
         cell.favouriteDelegate = self
         return cell
     }
@@ -62,6 +64,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: self)
+        
+        
         
     }
     
@@ -77,10 +81,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 extension ViewController:Favouritable{
+    
     func toggleFavourite(for cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell){
         
         dataProvider.toggleFavourite(for: indexPath.row)
+            tableView.reloadData()
         }
     }
     
