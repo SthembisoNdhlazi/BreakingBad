@@ -48,7 +48,7 @@ class DataProvider{
                     DispatchQueue.main.async {
                         completed()
                     }
-                
+                    print(quotes?.count)
                     
                 } catch{
                     print("Error fetching quotes")

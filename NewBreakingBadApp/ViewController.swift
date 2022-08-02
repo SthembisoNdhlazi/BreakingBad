@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+        
+        dataProvider.getQuotes{
+            print("Success")
+        }
        
                 
                 
@@ -72,7 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController{
             destination.character = dataProvider.characters![tableView.indexPathForSelectedRow!.row]
-            
+            destination.quote = dataProvider.quotes![tableView.indexPathForSelectedRow!.row]
         }
         
     }

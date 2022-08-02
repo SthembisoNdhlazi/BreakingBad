@@ -64,9 +64,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
        
-        dataProvider.getQuotes {
-            
-        }
+        
         
         
         tableView.reloadData()
@@ -77,7 +75,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         actorLabel.text = "portrayed by: \(character?.portrayed ?? "")"
        
         statusLabel.text = "Status:\(character?.status ?? "")"
-        quoteLabel.text = "Quote\(quote?.quote ?? "")"
+        quoteLabel.text = "\(quote?.quote ?? "")"
        
         
        
